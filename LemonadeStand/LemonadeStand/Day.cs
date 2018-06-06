@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    class Program
+    class Day
     {
-        static void Main(string[] args)
+        // member variables
+        public Weather weather;
+        public Customers customers;
+
+        public Day()
         {
-            Game myGame = new Game();
-            myGame.RunGame();
+
         }
+        // member methods
     }
 }
