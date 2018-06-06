@@ -16,6 +16,8 @@ namespace LemonadeStand
 
         public Player()
         {
+            inventory = new Inventory();
+            recipe = new Recipe();
             this.name = "";
         }
         // member methods

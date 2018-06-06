@@ -16,6 +16,8 @@ namespace LemonadeStand
         public Game()
         {
             player1 = new Player();
+            day = new Day();
+            item = new Item();
         }
 
         // member methods
@@ -23,6 +25,18 @@ namespace LemonadeStand
         public void RunGame()
         {
             player1.SetName();
+            day.GenerateWeekForecast();
+        }
+
+        public void GenerateDay()
+        {
+            for (int i = 0; i < day.days.Count; i++)
+            {
+                Console.WriteLine("It is " + day.days[i]);
+                Console.ReadLine();
+                day.weather.GenerateTemperature();
+                day.weather.GenerateCondition();
+            }
         }
     }
 }

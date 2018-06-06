@@ -9,6 +9,9 @@ namespace LemonadeStand
     class Weather
     {
         // member variables
+        public int temperature;
+        public string condition;
+        public List<string> conditions = new List<string>() {"sunny", "hazy", "overcast", "rainy"};
 
         public Weather()
         {
@@ -16,5 +19,30 @@ namespace LemonadeStand
         }
         // member methods
 
+        public int GenerateTemperature()
+        {
+            Random randomTemperature = new Random();
+            temperature = randomTemperature.Next(50, 100);
+            return temperature;
+        }
+
+        public void DisplayTemperature()
+        {
+            Console.WriteLine("The temperature is: " + temperature);
+        }
+
+        public string GenerateCondition()
+        {
+            Random randNum = new Random();
+            int index = randNum.Next(0, 3);
+            condition = conditions[index];
+            return condition;
+        }
+
+        public void DisplayCondition()
+        {
+            Console.WriteLine("The weather is: " + condition);
+            Console.ReadLine();
+        }
     }
 }
