@@ -27,6 +27,8 @@ namespace LemonadeStand
 
         public abstract void GenerateCost();
 
+        public abstract void AddToInventory();
+
 
     }
 }

@@ -26,12 +26,18 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many lemons would you like to buy?  Please enter a whole number.");
             quantityToPurchase = Convert.ToInt32(Console.ReadLine());
+            AddToInventory();
             GenerateCost();
         }
 
         public override void GenerateCost()
         {
             cost = quantityToPurchase * price;
+        }
+
+        public override void AddToInventory()
+        {
+            quantity += quantityToPurchase;    
         }
 
     }

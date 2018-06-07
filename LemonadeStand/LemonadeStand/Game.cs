@@ -23,6 +23,7 @@ namespace LemonadeStand
         public void RunGame()
         {
             player1.SetName();
+            player1.DisplayBudget();
             day.GenerateWeekForecast();
             GenerateDay();
         }
@@ -35,7 +36,6 @@ namespace LemonadeStand
                 Console.ReadLine();
                 day.weather.DisplayTemperature();
                 day.weather.DisplayCondition();
-                player1.DisplayBudget();
                 player1.inventory.CurrentInventory();
                 player1.Purchases();
             }

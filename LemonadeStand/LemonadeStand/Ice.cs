@@ -26,6 +26,7 @@ namespace LemonadeStand
         {
             Console.WriteLine("How many ice cubes would you like to buy?  Please enter a whole number.");
             quantityToPurchase = Convert.ToInt32(Console.ReadLine());
+            AddToInventory();
             GenerateCost();
         }
 
@@ -34,5 +35,9 @@ namespace LemonadeStand
             cost = quantityToPurchase * price;
         }
 
+        public override void AddToInventory()
+        {
+            quantity += quantityToPurchase;
+        }
     }
 }

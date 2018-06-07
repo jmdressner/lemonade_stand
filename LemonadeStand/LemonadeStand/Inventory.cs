@@ -28,5 +28,7 @@ namespace LemonadeStand
             Console.WriteLine("Your current inventory is:\n Cups: "+ cup.quantity +"\n Lemons: "+ lemon.quantity +"\n Sugar: "+ sugar.quantity +"\n Ice: "+ ice.quantity);
             Console.ReadLine();
         }
+
+        
     }
 }

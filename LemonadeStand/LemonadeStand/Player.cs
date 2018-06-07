@@ -12,9 +12,9 @@ namespace LemonadeStand
         public Inventory inventory;
         public Recipe recipe;
         public string name;
-        public int budget;
+        public double budget;
         public string itemToPurchase;
-        public double balance;
+       
 
         public Player()
         {
@@ -23,7 +23,6 @@ namespace LemonadeStand
             this.name = "";
             this.budget = 20;
             this.itemToPurchase = "";
-            this.balance = 0;
         }
         // member methods
         public void DisplayName()
@@ -70,7 +69,6 @@ namespace LemonadeStand
                     break;
                 case "no":
                     GenerateBalance();
-                    inventory.CurrentInventory();
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry.  Please press enter to continue.");
@@ -82,13 +80,13 @@ namespace LemonadeStand
 
         public void GenerateBalance()
         {
-            balance = budget - (inventory.cup.cost + inventory.lemon.cost + inventory.sugar.cost + inventory.ice.cost);
+            budget -= (inventory.cup.cost + inventory.lemon.cost + inventory.sugar.cost + inventory.ice.cost);
             DisplayBalance();
         }
 
         public void DisplayBalance()
         {
-            Console.WriteLine("Your new balance is: $"+ balance);
+            Console.WriteLine("Your new balance is: $"+ budget);
             Console.ReadLine();
         }
     }
