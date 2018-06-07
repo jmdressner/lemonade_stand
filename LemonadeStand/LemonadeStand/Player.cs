@@ -12,13 +12,18 @@ namespace LemonadeStand
         public Inventory inventory;
         public Recipe recipe;
         public string name;
-        public string budget;
+        public int budget;
+        public string itemToPurchase;
+        public double balance;
 
         public Player()
         {
             inventory = new Inventory();
             recipe = new Recipe();
             this.name = "";
+            this.budget = 20;
+            this.itemToPurchase = "";
+            this.balance = 0;
         }
         // member methods
         public void DisplayName()
@@ -32,6 +37,59 @@ namespace LemonadeStand
             Console.WriteLine("Please enter player name.");
             name = Console.ReadLine();
             DisplayName();
+        }
+
+        public void DisplayBudget()
+        {
+            Console.WriteLine("Your balance is $" + budget);
+            Console.ReadLine();
+        }
+
+        public void Purchases()
+        {
+            Console.WriteLine("Would you like to purchase anything? If so, please enter: 'cups', 'lemons', 'sugar', or 'ice'.  If not, please enter 'no'.");
+            itemToPurchase = Console.ReadLine().ToLower();
+
+            switch (itemToPurchase)
+            {
+                case "cups":
+                    inventory.cup.DisplayPrice();
+                    Purchases();
+                    break;
+                case "lemons":
+                    inventory.lemon.DisplayPrice();
+                    Purchases();
+                    break;
+                case "sugar":
+                    inventory.sugar.DisplayPrice();
+                    Purchases();
+                    break;
+                case "ice":
+                    inventory.ice.DisplayPrice();
+                    Purchases();
+                    break;
+                case "no":
+                    GenerateBalance();
+                    inventory.CurrentInventory();
+                    break;
+                default:
+                    Console.WriteLine("That was an invalid entry.  Please press enter to continue.");
+                    Purchases();
+                    break;
+            }
+           
+        }
+
+        public void GenerateBalance()
+        {
+            balance = budget - (inventory.cup.cost + inventory.lemon.cost + inventory.sugar.cost + inventory.ice.cost);
+            DisplayBalance();
+        }
+
+        public void DisplayBalance()
+        {
+            Console.WriteLine("Your new balance is: $"+ balance);
+            Console.ReadLine();
         }
     }
 }

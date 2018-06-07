@@ -11,13 +11,11 @@ namespace LemonadeStand
         // member variables
         public Player player1;
         public Day day;
-        public Item item;
 
         public Game()
         {
             player1 = new Player();
             day = new Day();
-            item = new Item();
         }
 
         // member methods
@@ -26,6 +24,7 @@ namespace LemonadeStand
         {
             player1.SetName();
             day.GenerateWeekForecast();
+            GenerateDay();
         }
 
         public void GenerateDay()
@@ -34,8 +33,11 @@ namespace LemonadeStand
             {
                 Console.WriteLine("It is " + day.days[i]);
                 Console.ReadLine();
-                day.weather.GenerateTemperature();
-                day.weather.GenerateCondition();
+                day.weather.DisplayTemperature();
+                day.weather.DisplayCondition();
+                player1.DisplayBudget();
+                player1.inventory.CurrentInventory();
+                player1.Purchases();
             }
         }
     }

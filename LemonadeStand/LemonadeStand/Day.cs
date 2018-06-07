@@ -13,6 +13,7 @@ namespace LemonadeStand
         public Customers customers;
         public string forecastDay;
         public List<string> days = new List<string>() {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
+        public List<string> weekForecast = new List<string>();
 
         public Day()
         {
@@ -28,14 +29,15 @@ namespace LemonadeStand
                 forecastDay = days[i];
                 weather.GenerateTemperature();
                 weather.GenerateCondition();
-                DisplayGeneratedWeekForecast();
+                DisplayGeneratedForecast();
             }
         }
 
-        public void DisplayGeneratedWeekForecast()
+        public string DisplayGeneratedForecast()
         {
             Console.WriteLine(forecastDay + " will be " + weather.temperature + "F and " + weather.condition);
             Console.ReadLine();
+            return "";
         }
     }
 }

@@ -28,6 +28,7 @@ namespace LemonadeStand
 
         public void DisplayTemperature()
         {
+            GenerateTemperature();
             Console.WriteLine("The temperature is: " + temperature);
         }
 
@@ -41,6 +42,7 @@ namespace LemonadeStand
 
         public void DisplayCondition()
         {
+            GenerateCondition();
             Console.WriteLine("The weather is: " + condition);
             Console.ReadLine();
         }
