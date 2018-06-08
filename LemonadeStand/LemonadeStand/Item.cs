@@ -29,6 +29,9 @@ namespace LemonadeStand
 
         public abstract void AddToInventory();
 
-
+        public void GenerateBalance()
+        {
+            
+        }
     }
 }

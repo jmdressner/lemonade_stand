@@ -19,7 +19,7 @@ namespace LemonadeStand
         public Player()
         {
             inventory = new Inventory();
-            recipe = new Recipe();
+            recipe = new Recipe(inventory);
             this.name = "";
             this.budget = 20;
             this.itemToPurchase = "";

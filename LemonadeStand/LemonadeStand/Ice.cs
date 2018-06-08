@@ -12,7 +12,7 @@ namespace LemonadeStand
         {
             quantity = 0;
             quantityToPurchase = 0;
-            price = 0.1;
+            price = 0.01;
             cost = 0;
         }
 

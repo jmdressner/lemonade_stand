@@ -11,7 +11,7 @@ namespace LemonadeStand
         // member variables
         public int temperature;
         public string condition;
-        public List<string> conditions = new List<string>() {"sunny", "hazy", "overcast", "rainy"};
+        public List<string> conditions = new List<string>() {"sunny", "clear", "overcast", "rainy"};
 
         public Weather()
         {

@@ -9,16 +9,18 @@ namespace LemonadeStand
     class Day
     {
         // member variables
+        public Player player1;
         public Weather weather;
         public Customers customers;
         public string forecastDay;
         public List<string> days = new List<string>() {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
         public List<string> weekForecast = new List<string>();
 
-        public Day()
+        public Day(Player player1)
         {
+            this.player1 = player1;
             weather = new Weather();
-            customers = new Customers();
+            customers = new Customers(weather, player1);
         }
         // member methods
 
