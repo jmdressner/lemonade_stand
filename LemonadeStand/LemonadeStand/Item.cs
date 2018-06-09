@@ -18,7 +18,7 @@ namespace LemonadeStand
 
         public Item()
         {
-
+            
         }
         // member methods
 
@@ -26,11 +26,14 @@ namespace LemonadeStand
 
         public abstract void SetQuantityToPurchase();
 
-        public abstract void GenerateCost();
-
         public void AddToInventory()
         {
             quantity += quantityToPurchase;
+        }
+
+        public void GenerateCost()
+        {
+            cost = quantityToPurchase * price;
         }
 
         public void SubtractFromInventory(int quantityForRecipe)

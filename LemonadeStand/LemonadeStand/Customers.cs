@@ -82,9 +82,11 @@ namespace LemonadeStand
                 else
                 {
                     DisplayCustomers();
+                    player1.budget.GenerateProfit();
                 }
             }
             DisplayCustomers();
+            player1.budget.GenerateProfit();
         }
     }
 }

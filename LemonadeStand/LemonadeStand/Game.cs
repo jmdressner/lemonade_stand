@@ -14,7 +14,7 @@ namespace LemonadeStand
 
         public Game()
         {
-            player1 = new Player();
+            player1 = new Player(day);
             day = new Day(player1);
         }
 
@@ -23,7 +23,7 @@ namespace LemonadeStand
         public void RunGame()
         {
             player1.SetName();
-            player1.DisplayBudget();
+            player1.budget.DisplayBudget();
             day.GenerateWeekForecast();
             GenerateDay();
         }
@@ -38,7 +38,6 @@ namespace LemonadeStand
                 day.weather.DisplayCondition();
                 player1.inventory.CurrentInventory();
                 player1.Purchases();
-                player1.ChooseRecipe();
                 day.customers.GeneratePeople();
             }
         }

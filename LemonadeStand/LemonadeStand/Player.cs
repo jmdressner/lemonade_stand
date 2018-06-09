@@ -9,19 +9,21 @@ namespace LemonadeStand
     class Player
     {
         // member variables
+        public Day day;
         public Inventory inventory;
         public Recipe recipe;
+        public Budget budget;
         public string name;
-        public double budget;
         public string itemToPurchase;
        
 
-        public Player()
+        public Player(Day day)
         {
-            inventory = new Inventory();
+            inventory = new Inventory(budget);
             recipe = new Recipe(inventory);
+            budget = new Budget(inventory, day, recipe);
+            this.day = day;
             this.name = "";
-            this.budget = 25;
             this.itemToPurchase = "";
         }
         // member methods
@@ -38,12 +40,6 @@ namespace LemonadeStand
             DisplayName();
         }
 
-        public void DisplayBudget()
-        {
-            Console.WriteLine("Your balance is $" + budget);
-            Console.ReadLine();
-        }
-
         public void Purchases()
         {
             Console.WriteLine("Would you like to purchase anything? If so, please enter: 'cups', 'lemons', 'sugar', or 'ice'.  If not, please enter 'no'.");
@@ -53,22 +49,26 @@ namespace LemonadeStand
             {
                 case "cups":
                     inventory.cup.DisplayPrice();
+                    budget.SubtractCostOfCupsFromBalance();
                     Purchases();
                     break;
                 case "lemons":
                     inventory.lemon.DisplayPrice();
+                    budget.SubtractCostOfLemonsFromBalance();
                     Purchases();
                     break;
                 case "sugar":
                     inventory.sugar.DisplayPrice();
+                    budget.SubtractCostOfSugarFromBalance();
                     Purchases();
                     break;
                 case "ice":
                     inventory.ice.DisplayPrice();
+                    budget.SubtractCostOfIceFromBalance();
                     Purchases();
                     break;
                 case "no":
-                    GenerateBalance();
+                    ChooseRecipe();
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry.  Please press enter to continue.");
@@ -76,18 +76,6 @@ namespace LemonadeStand
                     break;
             }
            
-        }
-
-        public void GenerateBalance()
-        {
-            budget -= (inventory.cup.cost + inventory.lemon.cost + inventory.sugar.cost + inventory.ice.cost);
-            DisplayBalance();
-        }
-
-        public void DisplayBalance()
-        {
-            Console.WriteLine("Your new balance is: $"+ budget);
-            Console.ReadLine();
         }
 
         public void ChooseRecipe()

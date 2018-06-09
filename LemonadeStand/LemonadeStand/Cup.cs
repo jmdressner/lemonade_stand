@@ -39,10 +39,7 @@ namespace LemonadeStand
             }
         }
 
-        public override void GenerateCost()
-        {
-            cost = quantityToPurchase * price;
-        }
+       
 
         
 
