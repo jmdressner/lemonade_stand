@@ -38,6 +38,7 @@ namespace LemonadeStand
                 day.weather.DisplayCondition();
                 player1.inventory.CurrentInventory();
                 player1.Purchases();
+                player1.ChooseRecipe();
                 day.customers.GeneratePeople();
             }
         }

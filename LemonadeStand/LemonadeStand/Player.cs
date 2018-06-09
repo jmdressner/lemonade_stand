@@ -21,7 +21,7 @@ namespace LemonadeStand
             inventory = new Inventory();
             recipe = new Recipe(inventory);
             this.name = "";
-            this.budget = 20;
+            this.budget = 25;
             this.itemToPurchase = "";
         }
         // member methods
@@ -88,6 +88,25 @@ namespace LemonadeStand
         {
             Console.WriteLine("Your new balance is: $"+ budget);
             Console.ReadLine();
+        }
+
+        public void ChooseRecipe()
+        {
+            Console.WriteLine("Do you want to use the standard recipe or make your own? Please enter 'standard' or 'make'.");
+            string recipeChoice = Console.ReadLine().ToLower();
+
+            switch (recipeChoice)
+            {
+                case "standard":
+                    recipe.UseStandardRecipe();
+                    break;
+                case "make":
+                    recipe.MakeOwnRecipe();
+                    break;
+                default:
+                    Console.WriteLine("That was an invalid entry. Please press enter to continue.");
+                    break;
+            }
         }
     }
 }

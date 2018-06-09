@@ -19,10 +19,10 @@ namespace LemonadeStand
 
         public void UseStandardRecipe()
         {
-            inventory.cup.quantity = 1;
-            inventory.lemon.quantity = 1;
-            inventory.sugar.quantity = 1;
-            inventory.ice.quantity = 2;
+            inventory.cup.quantityForRecipe = 1;
+            inventory.lemon.quantityForRecipe = 1;
+            inventory.sugar.quantityForRecipe = 1;
+            inventory.ice.quantityForRecipe = 2;
             DisplayStandardRecipe();
         }
 
@@ -34,19 +34,51 @@ namespace LemonadeStand
 
         public void MakeOwnRecipe()
         {
-            inventory.cup.quantity = 1;
+            inventory.cup.quantityForRecipe = 1;
             Console.WriteLine("For one cup of lemonade how many lemons would you like to use?  Please enter a whole number.");
-            inventory.lemon.quantity = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                inventory.lemon.quantityForRecipe = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please enter a whole number.");
+                MakeOwnRecipe();
+            }
             Console.WriteLine("For one cup of lemonade how many sugars would you like to use?  Please enter a whole number.");
-            inventory.sugar.quantity = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                inventory.sugar.quantityForRecipe = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please enter a whole number.");
+                MakeOwnRecipe();
+            }
             Console.WriteLine("For one cup of lemonade how many ice cubes would you like to use?  Please enter a whole number.");
-            inventory.ice.quantity = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                inventory.ice.quantityForRecipe = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please enter a whole number.");
+                MakeOwnRecipe();
+            }
         }
 
         public void SetLemonadePrice()
         {
             Console.WriteLine("How much would you like to charge for 1 cup of lemonade?");
-            cupPrice = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                cupPrice = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please press enter to continue.");
+                SetLemonadePrice();
+            }
         }
     }
 }

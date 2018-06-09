@@ -12,6 +12,7 @@ namespace LemonadeStand
         {
             quantity = 0;
             quantityToPurchase = 0;
+            quantityForRecipe = 2;
             price = 0.01;
             cost = 0;
         }
@@ -25,19 +26,22 @@ namespace LemonadeStand
         public override void SetQuantityToPurchase()
         {
             Console.WriteLine("How many ice cubes would you like to buy?  Please enter a whole number.");
-            quantityToPurchase = Convert.ToInt32(Console.ReadLine());
-            AddToInventory();
-            GenerateCost();
+            try
+            {
+                quantityToPurchase = Convert.ToInt32(Console.ReadLine());
+                AddToInventory();
+                GenerateCost();
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please enter a whole number.");
+                SetQuantityToPurchase();
+            }
         }
 
         public override void GenerateCost()
         {
             cost = quantityToPurchase * price;
-        }
-
-        public override void AddToInventory()
-        {
-            quantity += quantityToPurchase;
         }
     }
 }
