@@ -68,6 +68,7 @@ namespace LemonadeStand
                     break;
                 case "no":
                     inventory.CurrentInventory();
+                    recipe.QuantityOfLemonadePossible(inventory);
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry.  Please press enter to continue.");
@@ -93,6 +94,7 @@ namespace LemonadeStand
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry. Please press enter to continue.");
+                    ChooseRecipe();
                     break;
             }
         }

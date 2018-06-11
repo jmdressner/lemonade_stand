@@ -22,9 +22,13 @@ namespace LemonadeStand
 
         public void RunGame()
         {
+            UserInterface.DisplayInstructions();
+            Console.Clear();
             player1.SetName();
-            player1.budget.DisplayBudget();
+            Console.WriteLine("The weather forecast for the week is:");
+            Console.ReadLine();
             day.GenerateWeekForecast();
+            Console.Clear();
             GenerateDay();
         }
 
@@ -35,6 +39,7 @@ namespace LemonadeStand
                 Console.WriteLine("It is " + day.days[i]);
                 day.weather.DisplayTemperature();
                 day.weather.DisplayCondition();
+                player1.budget.DisplayBalance();
                 player1.ChooseRecipe();
                 player1.budget.SetLemonadePrice();
                 player1.inventory.CurrentInventory();
@@ -42,6 +47,9 @@ namespace LemonadeStand
                 day.GeneratePeople(day, player1);
                 player1.budget.GenerateProfit(day);
                 player1.budget.GenerateLoss(day);
+                player1.budget.DisplayTotalProfit();
+                player1.budget.DisplayTotalLoss();
+                Console.Clear();
             }
         }
     }

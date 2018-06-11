@@ -44,7 +44,6 @@ namespace LemonadeStand
         {
             GenerateCondition();
             Console.WriteLine("The weather is: " + condition);
-            Console.ReadLine();
         }
     }
 }

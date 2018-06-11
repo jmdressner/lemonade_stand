@@ -13,6 +13,9 @@ namespace LemonadeStand
         public double profit;
         public double loss;
         public double cupPrice;
+        public List<double> totalProfit = new List<double>();
+        public List<double> totalLoss = new List<double>();
+
 
         public Budget()
         {
@@ -20,13 +23,6 @@ namespace LemonadeStand
             this.profit = 0;
             this.cupPrice = 0.25;
             this.loss = 0;
-        }
-
-        // member methods
-        public void DisplayBudget()
-        {
-            Console.WriteLine("Your balance is $" + balance);
-            Console.ReadLine();
         }
 
         public void SubtractCostOfCupsFromBalance(Inventory inventory)
@@ -92,6 +88,7 @@ namespace LemonadeStand
         public void GenerateProfit(Day day)
         {
             profit = day.customers.servedCustomers * cupPrice;
+            totalProfit.Add(profit);
             DisplayProfit(day);
             AddProfitToBalance();
         }
@@ -101,9 +98,16 @@ namespace LemonadeStand
             Console.WriteLine("Your profit on "+ day.forecastDay +" was: $"+ profit);
         }
 
+        public void DisplayTotalProfit()
+        {
+            double sumProfit = totalProfit.Sum();
+            Console.WriteLine("Your total profit is: $"+ sumProfit);
+        }
+
         public void GenerateLoss(Day day)
         {
             loss = day.customers.unservedCustomers * cupPrice;
+            totalLoss.Add(loss);
             DisplayLoss(day);
         }
 
@@ -111,6 +115,13 @@ namespace LemonadeStand
         {
             Console.WriteLine("Your loss on "+ day.forecastDay +" was: $"+ loss);
             DisplayBalance();
+        }
+
+        public void DisplayTotalLoss()
+        {
+            double sumLoss = totalLoss.Sum();
+            Console.WriteLine("Your total loss is: $" + sumLoss);
+            Console.ReadLine();
         }
 
         public void AddProfitToBalance()

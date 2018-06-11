@@ -35,7 +35,7 @@ namespace LemonadeStand
         {
             for (int i = 1; i <= customers; i++)
             {
-                if (player1.inventory.cup.quantity > 0 && player1.inventory.lemon.quantity > 0 && player1.inventory.sugar.quantity > 0 && player1.inventory.ice.quantity > 0)
+                if (player1.inventory.cup.quantity > 0 && player1.inventory.lemon.quantity > 0 && player1.inventory.sugar.quantity > 0 && player1.inventory.ice.quantity > 0 && i <= player1.recipe.possibleCupsOfLemonade)
                 {
                     player1.inventory.cup.SubtractFromInventory(player1.inventory.cup.quantityForRecipe);
                     player1.inventory.lemon.SubtractFromInventory(player1.inventory.lemon.quantityForRecipe);

@@ -8,10 +8,12 @@ namespace LemonadeStand
 {
     class Recipe
     {
+        public List<double> CupsOfLemonade = new List<double>();
+        public double possibleCupsOfLemonade;
 
         public Recipe()
         {
-            
+            this.possibleCupsOfLemonade = 0;
         }
 
         public void UseStandardRecipe(Inventory inventory)
@@ -62,6 +64,17 @@ namespace LemonadeStand
             }
         }
 
-       
+        public void QuantityOfLemonadePossible(Inventory inventory)
+        {
+            double possibleCups = inventory.cup.quantity / inventory.cup.quantityForRecipe;
+            CupsOfLemonade.Add(possibleCups);
+            double possibleLemons = inventory.lemon.quantity / inventory.lemon.quantityForRecipe;
+            CupsOfLemonade.Add(possibleLemons);
+            double possibleSugar = inventory.sugar.quantity / inventory.sugar.quantityForRecipe;
+            CupsOfLemonade.Add(possibleSugar);
+            double possibleIce = inventory.ice.quantity / inventory.ice.quantityForRecipe;
+            CupsOfLemonade.Add(possibleIce);
+            possibleCupsOfLemonade = Math.Floor(CupsOfLemonade.Min());
+        }
     }
 }
