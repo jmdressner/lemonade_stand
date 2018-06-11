@@ -11,6 +11,7 @@ namespace LemonadeStand
         // member variables
         public double balance;
         public double profit;
+        public double loss;
         public double cupPrice;
 
         public Budget()
@@ -18,6 +19,7 @@ namespace LemonadeStand
             this.balance = 25;
             this.profit = 0;
             this.cupPrice = 0.25;
+            this.loss = 0;
         }
 
         // member methods
@@ -30,37 +32,90 @@ namespace LemonadeStand
         public void SubtractCostOfCupsFromBalance(Inventory inventory)
         {
             balance -= inventory.cup.cost;
-            DisplayBalance();
+            if (balance >= 0)
+            {
+                DisplayBalance();
+            }
+            else
+            {
+                Console.WriteLine("You do not have enough money left in your balance to make that purchase.");
+                balance += inventory.cup.cost;
+                DisplayBalance();
+            }  
         }
 
         public void SubtractCostOfLemonsFromBalance(Inventory inventory)
         {
             balance -= inventory.lemon.cost;
-            DisplayBalance();
+            if (balance >= 0)
+            {
+                DisplayBalance();
+            }
+            else
+            {
+                Console.WriteLine("You do not have enough money left in your balance to make that purchase.");
+                balance += inventory.lemon.cost;
+                DisplayBalance();
+            }
         }
 
         public void SubtractCostOfSugarFromBalance(Inventory inventory)
         {
             balance -= inventory.sugar.cost;
-            DisplayBalance();
+            if (balance >= 0)
+            {
+                DisplayBalance();
+            }
+            else
+            {
+                Console.WriteLine("You do not have enough money left in your balance to make that purchase.");
+                balance += inventory.sugar.cost;
+                DisplayBalance();
+            }
         }
 
         public void SubtractCostOfIceFromBalance(Inventory inventory)
         {
             balance -= inventory.ice.cost;
-            DisplayBalance();
+            if (balance >= 0)
+            {
+                DisplayBalance();
+            }
+            else
+            {
+                Console.WriteLine("You do not have enough money left in your balance to make that purchase.");
+                balance += inventory.ice.cost;
+                DisplayBalance();
+            }
         }
 
         public void GenerateProfit(Day day)
         {
-            profit = day.customers.customers * cupPrice;
+            profit = day.customers.servedCustomers * cupPrice;
+            DisplayProfit(day);
             AddProfitToBalance();
+        }
+
+        public void DisplayProfit(Day day)
+        {
+            Console.WriteLine("Your profit on "+ day.forecastDay +" was: $"+ profit);
+        }
+
+        public void GenerateLoss(Day day)
+        {
+            loss = day.customers.unservedCustomers * cupPrice;
+            DisplayLoss(day);
+        }
+
+        public void DisplayLoss(Day day)
+        {
+            Console.WriteLine("Your loss on "+ day.forecastDay +" was: $"+ loss);
+            DisplayBalance();
         }
 
         public void AddProfitToBalance()
         {
             balance += profit;
-            DisplayBalance();
         }
 
         public void DisplayBalance()
@@ -71,10 +126,11 @@ namespace LemonadeStand
 
         public void SetLemonadePrice()
         {
-            Console.WriteLine("How much would you like to charge for 1 cup of lemonade?");
+            Console.WriteLine("How much would you like to charge for 1 cup of lemonade? Please enter a number (the default price is 0.25c).");
             try
             {
-                cupPrice = Convert.ToInt32(Console.ReadLine());
+                cupPrice = Convert.ToDouble(Console.ReadLine());
+                Console.ReadLine();
             }
             catch (FormatException)
             {

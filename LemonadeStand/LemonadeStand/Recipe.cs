@@ -20,13 +20,11 @@ namespace LemonadeStand
             inventory.lemon.quantityForRecipe = 1;
             inventory.sugar.quantityForRecipe = 1;
             inventory.ice.quantityForRecipe = 2;
-            DisplayStandardRecipe();
         }
 
         public void DisplayStandardRecipe()
         {
-            Console.WriteLine("Standard Recipe: 1 cup of lemonade needs: 1 lemon, 1 sugar, and 2 ice cubes.");
-            Console.ReadLine();
+            Console.WriteLine("The Standard Recipe for 1 cup of lemonade is: 1 lemon, 1 sugar, and 2 ice cubes.");
         }
 
         public void MakeOwnRecipe(Inventory inventory)

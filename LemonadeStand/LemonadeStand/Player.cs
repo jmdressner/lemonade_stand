@@ -67,7 +67,7 @@ namespace LemonadeStand
                     Purchases();
                     break;
                 case "no":
-                    ChooseRecipe();
+                    inventory.CurrentInventory();
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry.  Please press enter to continue.");
@@ -79,6 +79,7 @@ namespace LemonadeStand
 
         public void ChooseRecipe()
         {
+            recipe.DisplayStandardRecipe();
             Console.WriteLine("Do you want to use the standard recipe or make your own? Please enter 'standard' or 'make'.");
             string recipeChoice = Console.ReadLine().ToLower();
 

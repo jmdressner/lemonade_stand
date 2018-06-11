@@ -11,13 +11,15 @@ namespace LemonadeStand
         // member variables
         public int people;
         public double customers;
-        public int i;
+        public int unservedCustomers;
+        public int servedCustomers;
 
         public Customers()
         {
             this.people = 100;
             this.customers = 0;
-            this.i = 1;
+            this.unservedCustomers = 0;
+            this.servedCustomers = 0;
         }
         // member methods
 
@@ -25,7 +27,7 @@ namespace LemonadeStand
 
         public void DisplayCustomers()
         {
-            Console.WriteLine("Today "+ people +" people walked by your lemonade stand and you had "+ customers +" customers.");
+            Console.WriteLine("Today "+ people +" people walked by your lemonade stand and you had "+ customers +" possible customers.");
             Console.ReadLine();
         }
 
@@ -42,8 +44,11 @@ namespace LemonadeStand
                 }
                 else
                 {
-                    DisplayCustomers();
+                    unservedCustomers = Convert.ToInt32(customers) - (i - 1);
+                    Console.WriteLine("You ran out of lemonade. You were only able to serve "+ servedCustomers +" customers.");
+                    break;
                 }
+                servedCustomers = i;
             }
             DisplayCustomers();
         }
