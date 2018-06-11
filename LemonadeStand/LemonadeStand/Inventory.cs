@@ -9,15 +9,13 @@ namespace LemonadeStand
     class Inventory
     {
         // member variables
-        public Budget budget;
         public Cup cup;
         public Lemon lemon;
         public Sugar sugar;
         public Ice ice;
 
-        public Inventory(Budget budget)
+        public Inventory()
         {
-            this.budget = budget;
             cup = new Cup();
             lemon = new Lemon();
             sugar = new Sugar();

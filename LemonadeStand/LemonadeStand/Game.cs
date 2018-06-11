@@ -14,8 +14,8 @@ namespace LemonadeStand
 
         public Game()
         {
-            player1 = new Player(day);
-            day = new Day(player1);
+            player1 = new Player();
+            day = new Day();
         }
 
         // member methods
@@ -38,7 +38,8 @@ namespace LemonadeStand
                 day.weather.DisplayCondition();
                 player1.inventory.CurrentInventory();
                 player1.Purchases();
-                day.customers.GeneratePeople();
+                day.GeneratePeople(day, player1);
+                player1.budget.GenerateProfit(day);
             }
         }
     }

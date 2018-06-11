@@ -9,7 +9,7 @@ namespace LemonadeStand
     class Player
     {
         // member variables
-        public Day day;
+        // public Day day;
         public Inventory inventory;
         public Recipe recipe;
         public Budget budget;
@@ -17,12 +17,11 @@ namespace LemonadeStand
         public string itemToPurchase;
        
 
-        public Player(Day day)
+        public Player()
         {
-            inventory = new Inventory(budget);
-            recipe = new Recipe(inventory);
-            budget = new Budget(inventory, day, recipe);
-            this.day = day;
+            inventory = new Inventory();
+            recipe = new Recipe();
+            budget = new Budget();
             this.name = "";
             this.itemToPurchase = "";
         }
@@ -49,22 +48,22 @@ namespace LemonadeStand
             {
                 case "cups":
                     inventory.cup.DisplayPrice();
-                    budget.SubtractCostOfCupsFromBalance();
+                    budget.SubtractCostOfCupsFromBalance(inventory);
                     Purchases();
                     break;
                 case "lemons":
                     inventory.lemon.DisplayPrice();
-                    budget.SubtractCostOfLemonsFromBalance();
+                    budget.SubtractCostOfLemonsFromBalance(inventory);
                     Purchases();
                     break;
                 case "sugar":
                     inventory.sugar.DisplayPrice();
-                    budget.SubtractCostOfSugarFromBalance();
+                    budget.SubtractCostOfSugarFromBalance(inventory);
                     Purchases();
                     break;
                 case "ice":
                     inventory.ice.DisplayPrice();
-                    budget.SubtractCostOfIceFromBalance();
+                    budget.SubtractCostOfIceFromBalance(inventory);
                     Purchases();
                     break;
                 case "no":
@@ -86,10 +85,10 @@ namespace LemonadeStand
             switch (recipeChoice)
             {
                 case "standard":
-                    recipe.UseStandardRecipe();
+                    recipe.UseStandardRecipe(inventory);
                     break;
                 case "make":
-                    recipe.MakeOwnRecipe();
+                    recipe.MakeOwnRecipe(inventory);
                     break;
                 default:
                     Console.WriteLine("That was an invalid entry. Please press enter to continue.");

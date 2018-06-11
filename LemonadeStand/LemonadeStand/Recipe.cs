@@ -8,16 +8,13 @@ namespace LemonadeStand
 {
     class Recipe
     {
-        Inventory inventory;
-        public double cupPrice;
 
-        public Recipe(Inventory inventory)
+        public Recipe()
         {
-            this.inventory = inventory;
-            cupPrice = 0.25;
+            
         }
 
-        public void UseStandardRecipe()
+        public void UseStandardRecipe(Inventory inventory)
         {
             inventory.cup.quantityForRecipe = 1;
             inventory.lemon.quantityForRecipe = 1;
@@ -32,7 +29,7 @@ namespace LemonadeStand
             Console.ReadLine();
         }
 
-        public void MakeOwnRecipe()
+        public void MakeOwnRecipe(Inventory inventory)
         {
             inventory.cup.quantityForRecipe = 1;
             Console.WriteLine("For one cup of lemonade how many lemons would you like to use?  Please enter a whole number.");
@@ -43,7 +40,7 @@ namespace LemonadeStand
             catch (FormatException)
             {
                 Console.WriteLine("Invalid entry. Please enter a whole number.");
-                MakeOwnRecipe();
+                MakeOwnRecipe(inventory);
             }
             Console.WriteLine("For one cup of lemonade how many sugars would you like to use?  Please enter a whole number.");
             try
@@ -53,7 +50,7 @@ namespace LemonadeStand
             catch (FormatException)
             {
                 Console.WriteLine("Invalid entry. Please enter a whole number.");
-                MakeOwnRecipe();
+                MakeOwnRecipe(inventory);
             }
             Console.WriteLine("For one cup of lemonade how many ice cubes would you like to use?  Please enter a whole number.");
             try
@@ -63,22 +60,10 @@ namespace LemonadeStand
             catch (FormatException)
             {
                 Console.WriteLine("Invalid entry. Please enter a whole number.");
-                MakeOwnRecipe();
+                MakeOwnRecipe(inventory);
             }
         }
 
-        public void SetLemonadePrice()
-        {
-            Console.WriteLine("How much would you like to charge for 1 cup of lemonade?");
-            try
-            {
-                cupPrice = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("Invalid entry. Please press enter to continue.");
-                SetLemonadePrice();
-            }
-        }
+       
     }
 }

@@ -9,19 +9,15 @@ namespace LemonadeStand
     class Budget
     {
         // member variables
-        public Inventory inventory;
-        public Day day;
-        public Recipe recipe;
         public double balance;
         public double profit;
+        public double cupPrice;
 
-        public Budget(Inventory inventory, Day day, Recipe recipe)
+        public Budget()
         {
-            this.inventory = inventory;
-            this.day = day;
-            this.recipe = recipe;
             this.balance = 25;
             this.profit = 0;
+            this.cupPrice = 0.25;
         }
 
         // member methods
@@ -31,33 +27,33 @@ namespace LemonadeStand
             Console.ReadLine();
         }
 
-        public void SubtractCostOfCupsFromBalance()
+        public void SubtractCostOfCupsFromBalance(Inventory inventory)
         {
             balance -= inventory.cup.cost;
             DisplayBalance();
         }
 
-        public void SubtractCostOfLemonsFromBalance()
+        public void SubtractCostOfLemonsFromBalance(Inventory inventory)
         {
             balance -= inventory.lemon.cost;
             DisplayBalance();
         }
 
-        public void SubtractCostOfSugarFromBalance()
+        public void SubtractCostOfSugarFromBalance(Inventory inventory)
         {
             balance -= inventory.sugar.cost;
             DisplayBalance();
         }
 
-        public void SubtractCostOfIceFromBalance()
+        public void SubtractCostOfIceFromBalance(Inventory inventory)
         {
             balance -= inventory.ice.cost;
             DisplayBalance();
         }
 
-        public void GenerateProfit()
+        public void GenerateProfit(Day day)
         {
-            profit = day.customers.customers * recipe.cupPrice;
+            profit = day.customers.customers * cupPrice;
             AddProfitToBalance();
         }
 
@@ -73,6 +69,18 @@ namespace LemonadeStand
             Console.ReadLine();
         }
 
-
+        public void SetLemonadePrice()
+        {
+            Console.WriteLine("How much would you like to charge for 1 cup of lemonade?");
+            try
+            {
+                cupPrice = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Invalid entry. Please press enter to continue.");
+                SetLemonadePrice();
+            }
+        }
     }
 }
