@@ -38,10 +38,5 @@ namespace LemonadeStand
                 SetQuantityToPurchase();
             }
         }
-
-       
-
-        
-
     }
 }
