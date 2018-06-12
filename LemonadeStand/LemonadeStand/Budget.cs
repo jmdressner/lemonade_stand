@@ -14,6 +14,8 @@ namespace LemonadeStand
         public double cupPrice;
         public List<double> totalProfit = new List<double>();
         public List<double> totalLoss = new List<double>();
+        public double sumProfit;
+        public double sumLoss;
 
         public Budget()
         {
@@ -98,7 +100,7 @@ namespace LemonadeStand
 
         public void DisplayTotalProfit()
         {
-            double sumProfit = totalProfit.Sum();
+            sumProfit = totalProfit.Sum();
             Console.WriteLine("Your total profit is: $"+ sumProfit);
         }
 
@@ -117,7 +119,7 @@ namespace LemonadeStand
 
         public void DisplayTotalLoss()
         {
-            double sumLoss = totalLoss.Sum();
+            sumLoss = totalLoss.Sum();
             Console.WriteLine("Your total loss in sales is: $" + sumLoss);
             Console.ReadLine();
         }

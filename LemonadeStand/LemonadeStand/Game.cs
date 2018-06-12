@@ -10,11 +10,13 @@ namespace LemonadeStand
     {
         public Player player1;
         public Day day;
+        public DatabaseSaver saver;
 
         public Game()
         {
             player1 = new Player();
             day = new Day();
+            saver = new DatabaseSaver();
         }
 
         public void RunGame()
@@ -27,6 +29,8 @@ namespace LemonadeStand
             day.GenerateWeekForecast();
             Console.Clear();
             GenerateDay();
+            saver.Save(player1.name, player1.budget.sumProfit, player1.budget.sumLoss);
+            Console.Clear();
         }
 
         public void GenerateDay()
@@ -46,6 +50,7 @@ namespace LemonadeStand
                 player1.budget.GenerateLoss(day);
                 player1.budget.DisplayTotalProfit();
                 player1.budget.DisplayTotalLoss();
+                player1.recipe.ClearList();
                 Console.Clear();
             }
         }

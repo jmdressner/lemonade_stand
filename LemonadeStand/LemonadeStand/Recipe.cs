@@ -77,5 +77,10 @@ namespace LemonadeStand
             CupsOfLemonade.Add(possibleIce);
             possibleCupsOfLemonade = Math.Floor(CupsOfLemonade.Min());
         }
+
+        public void ClearList()
+        {
+            CupsOfLemonade.Clear();
+        }
     }
 }
