@@ -8,14 +8,10 @@ namespace LemonadeStand
 {
     class Player
     {
-        // member variables
-        // public Day day;
         public Inventory inventory;
         public Recipe recipe;
         public Budget budget;
         public string name;
-        public string itemToPurchase;
-       
 
         public Player()
         {
@@ -23,26 +19,25 @@ namespace LemonadeStand
             recipe = new Recipe();
             budget = new Budget();
             this.name = "";
-            this.itemToPurchase = "";
         }
-        // member methods
+
+        public void SetName()
+        {
+            Console.WriteLine("Please enter player name.");
+            string name = Console.ReadLine();
+            DisplayName();
+        }
+
         public void DisplayName()
         {
             Console.WriteLine("Player: " + name);
             Console.ReadLine();
         }
 
-        public void SetName()
-        {
-            Console.WriteLine("Please enter player name.");
-            name = Console.ReadLine();
-            DisplayName();
-        }
-
         public void Purchases()
         {
             Console.WriteLine("Would you like to purchase anything? If so, please enter: 'cups', 'lemons', 'sugar', or 'ice'.  If not, please enter 'no'.");
-            itemToPurchase = Console.ReadLine().ToLower();
+            string itemToPurchase = Console.ReadLine().ToLower();
 
             switch (itemToPurchase)
             {
@@ -75,7 +70,6 @@ namespace LemonadeStand
                     Purchases();
                     break;
             }
-           
         }
 
         public void ChooseRecipe()

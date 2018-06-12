@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
     class Customers
     {
-        // member variables
         public int people;
         public double customers;
         public int unservedCustomers;
@@ -21,10 +20,7 @@ namespace LemonadeStand
             this.unservedCustomers = 0;
             this.servedCustomers = 0;
         }
-        // member methods
-
-        
-
+      
         public void DisplayCustomers()
         {
             Console.WriteLine("Today "+ people +" people walked by your lemonade stand and you had "+ customers +" possible customers.");

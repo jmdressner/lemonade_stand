@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
     class Game
     {
-        // member variables
         public Player player1;
         public Day day;
 
@@ -17,8 +16,6 @@ namespace LemonadeStand
             player1 = new Player();
             day = new Day();
         }
-
-        // member methods
 
         public void RunGame()
         {

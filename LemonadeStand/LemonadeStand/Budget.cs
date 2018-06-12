@@ -8,14 +8,12 @@ namespace LemonadeStand
 {
     class Budget
     {
-        // member variables
         public double balance;
         public double profit;
         public double loss;
         public double cupPrice;
         public List<double> totalProfit = new List<double>();
         public List<double> totalLoss = new List<double>();
-
 
         public Budget()
         {

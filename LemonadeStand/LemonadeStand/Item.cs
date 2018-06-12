@@ -8,8 +8,6 @@ namespace LemonadeStand
 {
     public abstract class Item
     {
-        // member vaiables
-
         public int quantity;
         public int quantityToPurchase;
         public int quantityForRecipe;
@@ -20,7 +18,6 @@ namespace LemonadeStand
         {
             
         }
-        // member methods
 
         public abstract void DisplayPrice();
 

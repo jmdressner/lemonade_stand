@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
     class Weather
     {
-        // member variables
         public int temperature;
         public string condition;
         public List<string> conditions = new List<string>() {"sunny", "clear", "overcast", "rainy"};
@@ -17,7 +16,6 @@ namespace LemonadeStand
         {
 
         }
-        // member methods
 
         public int GenerateTemperature()
         {

@@ -8,7 +8,6 @@ namespace LemonadeStand
 {
     class Day
     {
-        // member variables
         public Weather weather;
         public Customers customers;
         public string forecastDay;
@@ -19,7 +18,6 @@ namespace LemonadeStand
             weather = new Weather();
             customers = new Customers();
         }
-        // member methods
 
         public void GenerateWeekForecast()
         {
