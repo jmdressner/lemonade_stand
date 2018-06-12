@@ -24,7 +24,7 @@ namespace LemonadeStand
         public void SetName()
         {
             Console.WriteLine("Please enter player name.");
-            string name = Console.ReadLine();
+            name = Console.ReadLine();
             DisplayName();
         }
 

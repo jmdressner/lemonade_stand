@@ -8,12 +8,13 @@ namespace LemonadeStand
 {
     class Recipe
     {
-        public List<double> CupsOfLemonade = new List<double>();
+        public List<double> CupsOfLemonade;
         public double possibleCupsOfLemonade;
 
         public Recipe()
         {
             this.possibleCupsOfLemonade = 0;
+            CupsOfLemonade = new List<double>();
         }
 
         public void UseStandardRecipe(Inventory inventory)

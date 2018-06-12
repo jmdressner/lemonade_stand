@@ -93,7 +93,7 @@ namespace LemonadeStand
 
         public void DisplayProfit(Day day)
         {
-            Console.WriteLine("Your profit on "+ day.forecastDay +" was: $"+ profit);
+            Console.WriteLine("Your profit from today was: $"+ profit);
         }
 
         public void DisplayTotalProfit()
@@ -111,14 +111,14 @@ namespace LemonadeStand
 
         public void DisplayLoss(Day day)
         {
-            Console.WriteLine("Your loss on "+ day.forecastDay +" was: $"+ loss);
+            Console.WriteLine("Your loss in sales from today was: $"+ loss);
             DisplayBalance();
         }
 
         public void DisplayTotalLoss()
         {
             double sumLoss = totalLoss.Sum();
-            Console.WriteLine("Your total loss is: $" + sumLoss);
+            Console.WriteLine("Your total loss in sales is: $" + sumLoss);
             Console.ReadLine();
         }
 
