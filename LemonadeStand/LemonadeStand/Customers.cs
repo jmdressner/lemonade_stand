@@ -44,6 +44,7 @@ namespace LemonadeStand
                     Console.WriteLine("You ran out of lemonade. You were only able to serve "+ servedCustomers +" customers.");
                     break;
                 }
+                unservedCustomers = 0;
                 servedCustomers = i;
             }
             DisplayCustomers();

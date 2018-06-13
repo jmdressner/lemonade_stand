@@ -29,7 +29,7 @@ namespace LemonadeStand
             day.GenerateWeekForecast();
             Console.Clear();
             GenerateDay();
-            saver.Save(player1.name, player1.budget.sumProfit, player1.budget.sumLoss);
+           // saver.Save(player1.name, player1.budget.sumProfit, player1.budget.sumLoss);
             Console.Clear();
         }
 

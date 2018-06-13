@@ -23,6 +23,8 @@ namespace LemonadeStand
             this.profit = 0;
             this.cupPrice = 0.25;
             this.loss = 0;
+            this.sumProfit = 0;
+            this.sumLoss = 0;
         }
 
         public void SubtractCostOfCupsFromBalance(Inventory inventory)
